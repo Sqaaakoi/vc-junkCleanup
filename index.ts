@@ -10,7 +10,8 @@ export const ParsedPatches = Object.entries(Patches).map(([k, v]) => {
         setting: {
             type: OptionType.BOOLEAN,
             description,
-            default: !!(defaultValue ?? true)
+            default: !!(defaultValue ?? true),
+            restartNeeded: true
         } as PluginSettingDef,
         patches: (Array.isArray(patches) ? patches : [patches]).map(p => ({
             ...p,
@@ -26,5 +27,6 @@ export default definePlugin({
     description: "Another plugin that cleans up common annoynances in Discord",
     authors: [Devs.Sqaaakoi],
     settings,
-    patches: ParsedPatches.flatMap(p => p.patches)
+    patches: ParsedPatches.flatMap(p => p.patches),
+    tags: ["junk", "bloat", "debloat", "shop", "gift", "nitro", "ad", "advertisement", "adblock"]
 });

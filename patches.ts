@@ -98,6 +98,18 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         }
     },
 
+    updateReadyButton: {
+        description: "Hide the Update Ready! button",
+        patches: {
+            find: 'case"UPDATE_DOWNLOADED":',
+            replacement: {
+                match: /switch\(this\.props\.mode\)/,
+                replace: "return null;$&"
+            }
+        },
+        default: false
+    }
+
     // transferToConsole: {
     //     description: "Hide the transfer to console button",
     //     patches: [
