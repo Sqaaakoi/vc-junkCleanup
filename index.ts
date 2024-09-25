@@ -3,10 +3,9 @@ import definePlugin, { OptionType, PluginSettingDef } from "@utils/types";
 import Patches from "./patches";
 import { definePluginSettings } from "@api/Settings";
 
-export const ParsedPatches = Object.entries(Patches).map(([k, v]) => {
-    const { description, default: defaultValue, patches } = v;
+export const ParsedPatches = Object.entries(Patches).map(([patchName, { description, default: defaultValue, patches }]) => {
     return {
-        name: k,
+        name: patchName,
         setting: {
             type: OptionType.BOOLEAN,
             description,
@@ -15,7 +14,7 @@ export const ParsedPatches = Object.entries(Patches).map(([k, v]) => {
         } as PluginSettingDef,
         patches: (Array.isArray(patches) ? patches : [patches]).map(p => ({
             ...p,
-            predicate: () => settings.store[k]
+            predicate: () => settings.store[patchName]
         })),
     };
 });
@@ -24,7 +23,7 @@ const settings = definePluginSettings(Object.fromEntries(ParsedPatches.map(p => 
 
 export default definePlugin({
     name: "JunkCleanup",
-    description: "Another plugin that cleans up common annoynances in Discord",
+    description: "Another plugin that cleans up common annoyances in Discord",
     authors: [Devs.Sqaaakoi],
     settings,
     patches: ParsedPatches.flatMap(p => p.patches),
