@@ -74,19 +74,6 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         ]
     },
 
-    familyCenterInSettings: {
-        description: "Hide the Family Center page in settings",
-        patches: [
-            {
-                find: ".BILLING_SETTINGS,",
-                replacement: {
-                    match: /\i\.\i\.PRIVACY_FAMILY_CENTER,/,
-                    replace: ""
-                }
-            }
-        ]
-    },
-
     profileEditorShopUpsell: {
         description: "Hide the collectibles upsell banner in the Profiles settings",
         patches: {
@@ -108,7 +95,40 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
             }
         },
         default: false
-    }
+    },
+
+    familyCenterInSettings: {
+        description: "Hide the Family Center page in settings",
+        patches: [
+            {
+                find: ".USER_SETTINGS_MERCH_LINK_CONFIRMED)",
+                replacement: {
+                    match: /\[\i\.\i\.PRIVACY_FAMILY_CENTER\]:\{/,
+                    replace: "$&predicate:()=>false,"
+                }
+            }
+        ]
+    },
+    merchandiseLink: {
+        description: "Hide the Merch button inside settings",
+        patches: {
+            find: ".USER_SETTINGS_MERCH_LINK_CONFIRMED)",
+            replacement: {
+                match: /\[\i\.\i\.MERCHANDISE\]:\{/,
+                replace: "$&predicate:()=>false,"
+            }
+        }
+    },
+    socialLinks: {
+        description: "Hide the Merch button inside settings",
+        patches: {
+            find: ".USER_SETTINGS_MERCH_LINK_CONFIRMED)",
+            replacement: {
+                match: /\[\i\.\i\.SOCIAL_LINKS\]:\{/,
+                replace: "$&predicate:()=>false,"
+            }
+        }
+    },
 
     // transferToConsole: {
     //     description: "Hide the transfer to console button",
