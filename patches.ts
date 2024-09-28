@@ -98,7 +98,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     },
 
     familyCenterInSettings: {
-        description: "Hide the Family Center page in settings",
+        description: "Hide the Family Center page in settings. Does not hide the tab in DMs",
         patches: [
             {
                 find: ".USER_SETTINGS_MERCH_LINK_CONFIRMED)",
@@ -128,6 +128,19 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
                 replace: "$&predicate:()=>false,"
             }
         }
+    },
+    paymentSettings: {
+        description: "Hide the Payment Settings section. May cause side effects.",
+        patches: [
+            {
+                find: ".BILLING_SETTINGS,",
+                replacement: {
+                    match: /\{header:\i\.\i\.Messages\.BILLING_SETTINGS,.+?\},/,
+                    replace: ""
+                }
+            }
+        ],
+        default: false
     },
 
     // transferToConsole: {
