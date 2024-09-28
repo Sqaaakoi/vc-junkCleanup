@@ -147,10 +147,10 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     //     description: "Hide the transfer to console button",
     //     patches: [
     //         {
-    //             find: '"transfer-".concat',
+    //             find: 'navId:"transfer-menu"',
     //             replacement: {
-    //                 match: /(return )(\(0,\i\.jsx\)\(\i\.Fragment)/,
-    //                 replace: "$1null;$2"
+    //                 match: /return\(0,\i\.jsx\)\(\i\.Menu,.{0,120}?navId:"transfer-menu",/,
+    //                 replace: "return null;$&"
     //             }
     //         }
     //     ]
