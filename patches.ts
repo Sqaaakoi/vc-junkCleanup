@@ -120,7 +120,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         }
     },
     socialLinks: {
-        description: "Hide the Merch button inside settings",
+        description: "Hide the links to Discord's Social Media profiles",
         patches: {
             find: ".USER_SETTINGS_MERCH_LINK_CONFIRMED)",
             replacement: {
