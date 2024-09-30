@@ -1,13 +1,17 @@
 import { Patch } from "@utils/types";
 
-type StockPatch = Omit<Patch, "plugin">;
+type StockPatch = Omit<Omit<Patch, "plugin">, "predicate">;
 
 interface ConfigurablePatchDefinition {
+    /** Description of your patch, shown as the settings description */
     description: string;
+    /** Default enable state of the patch. Defaults to true */
     default?: boolean;
+    /** Patch or patches. Same as any patch defined within the `patches` array of a plugin definition */
     patches: StockPatch | StockPatch[];
 }
 
+// Record key is the setting name for the patch
 const Patches: Record<string, ConfigurablePatchDefinition> = {
     removeChatboxGiftButton: {
         description: "Remove the nitro gifting button in the chatbox",

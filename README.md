@@ -28,3 +28,9 @@ See https://docs.vencord.dev/installing/custom-plugins/ (clone into the `src/use
 - Transfer voice to console options (I haven't figured out how to do it properly yet)
 - Quest promotions (when Discord actually does another quest)
 
+## Contributing / Adding your own patch
+
+Patches are not located in the plugin object. Patches are instead defined a special wrapper object within the `Patches` object in [patches.ts](./patches.ts). See the types and comments for more details.
+
+These wrapper objects are parsed in [index.ts](./index.ts) to provide settings + associated enabled predicate for each patch.
+
