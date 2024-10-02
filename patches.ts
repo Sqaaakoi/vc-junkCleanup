@@ -1,6 +1,6 @@
 import { Patch } from "@utils/types";
 
-type StockPatch = Omit<Omit<Patch, "plugin">, "predicate">;
+type StockPatch = Omit<Patch, "plugin">;
 
 interface ConfigurablePatchDefinition {
     /** Description of your patch, shown as the settings description */
@@ -146,6 +146,17 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         ],
         default: false
     },
+
+    downloadApps: {
+        description: "Hide the Download Apps button in the sidebar",
+        patches: {
+            find: ".GUILDS_BAR_A11Y_LABEL,",
+            replacement: {
+                match: /(?<=guildDiscoveryRef,.{0,50}?,)\i(?=\?null:\(0,\i\.jsxs\)\(\i\.Fragment)/,
+                replace: "true"
+            }
+        }
+    }
 
     // transferToConsole: {
     //     description: "Hide the transfer to console button",

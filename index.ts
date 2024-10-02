@@ -14,7 +14,7 @@ export const ParsedPatches = Object.entries(Patches).map(([patchName, { descript
         } as PluginSettingDef,
         patches: (Array.isArray(patches) ? patches : [patches]).map(p => ({
             ...p,
-            predicate: () => settings.store[patchName]
+            predicate: () => (p?.predicate ?? (() => true))() && settings.store[patchName]
         })),
     };
 });
