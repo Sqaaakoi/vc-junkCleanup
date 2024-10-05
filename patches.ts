@@ -152,10 +152,34 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         patches: {
             find: ".GUILDS_BAR_A11Y_LABEL,",
             replacement: {
-                match: /(?<=guildDiscoveryRef,.{0,50}?,)\i(?=\?null:\(0,\i\.jsxs\)\(\i\.Fragment)/,
+                match: /\i(?=\?null:\(0,\i\.jsxs\)\(\i\.Fragment,{children:\[\(0,\i\.jsx\))/,
                 replace: "true"
             }
         }
+    },
+
+    contentInventory: {
+        description: "Hide the Activity Feed in the members list",
+        patches: {
+            find: /hasFeature\(\i\.\i\.ACTIVITY_FEED_ENABLED_BY_USER\)/,
+            replacement: {
+                match: /(?=let.{0,50}?hasFeature\(\i\.\i\.ACTIVITY_FEED_ENABLED_BY_USER\))/,
+                replace: "return false;"
+            }
+        },
+        default: false
+    },
+
+    activeNow: {
+        description: "Hide the Active Now sidebar in the Friends page",
+        patches: {
+            find: ".FRIENDS_SECTION_ONLINE",
+            replacement: {
+                match: /,\(0,\i\.jsx\)\("div",{className:\i.nowPlayingColumn,children:\(0,\i.jsx\)\(\i\.\i,{}\)}\)/,
+                replace: ""
+            }
+        },
+        default: false
     }
 
     // transferToConsole: {

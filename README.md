@@ -22,6 +22,8 @@ See https://docs.vencord.dev/installing/custom-plugins/ (clone into the `src/use
   - Merchandise
   - Social Media links
   - Payment section (disabled by default, as it can be opened other places in the app, and hiding it will cause a blank screen)
+- Activity Feed in members list (disabled by default)
+- Active Now sidebar (disabled by default)
 
 ## Coming soon
 
