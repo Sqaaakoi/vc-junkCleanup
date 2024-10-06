@@ -18,7 +18,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         patches: {
             find: '"sticker")',
             replacement: {
-                match: /=\i\.gifts/g,
+                match: /=\i\.gifts?/g,
                 replace: "=null"
             }
         }
@@ -28,7 +28,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         patches: {
             find: '"sticker")',
             replacement: {
-                match: /=\i\.gif/g,
+                match: /=\i\.gifs?/g,
                 replace: "=null"
             }
         },
@@ -39,7 +39,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         patches: {
             find: '"sticker")',
             replacement: {
-                match: /=\i\.sticker/g,
+                match: /=\i\.stickers?/g,
                 replace: "=null"
             }
         },
@@ -180,20 +180,28 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
             }
         },
         default: false
-    }
+    },
 
-    // transferToConsole: {
-    //     description: "Hide the transfer to console button",
-    //     patches: [
-    //         {
-    //             find: 'navId:"transfer-menu"',
-    //             replacement: {
-    //                 match: /return\(0,\i\.jsx\)\(\i\.Menu,.{0,120}?navId:"transfer-menu",/,
-    //                 replace: "return null;$&"
-    //             }
-    //         }
-    //     ]
-    // }
+    transferToConsole: {
+        description: "Hide the transfer to console button",
+        patches: [
+            {
+                find: '"transfer-".concat',
+                replacement: {
+                    match: /(?<=function \i\(\i\){)(?=let.{0,500}?"Console Transfer Item")/,
+                    replace: "return null;"
+                }
+            },
+            {
+                find: 'navId:"transfer-menu"',
+                replacement: {
+                    match: /(?<=function \i\(\i\){)(?=let.{0,500}?twoWayLink)/,
+                    replace: "return null;"
+                }
+            }
+        ]
+    },
+
 };
 
 export default Patches;

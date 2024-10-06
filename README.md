@@ -24,10 +24,10 @@ See https://docs.vencord.dev/installing/custom-plugins/ (clone into the `src/use
   - Payment section (disabled by default, as it can be opened other places in the app, and hiding it will cause a blank screen)
 - Activity Feed in members list (disabled by default)
 - Active Now sidebar (disabled by default)
+- Transfer voice to console
 
 ## Coming soon
 
-- Transfer voice to console options (I haven't figured out how to do it properly yet)
 - Quest promotions (when Discord actually does another quest)
 
 ## Contributing / Adding your own patch
