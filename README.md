@@ -25,6 +25,7 @@ See https://docs.vencord.dev/installing/custom-plugins/ (clone into the `src/use
 - Activity Feed in members list (disabled by default)
 - Active Now sidebar (disabled by default)
 - Transfer voice to console
+- Activity name above expanded activities in text channels
 
 ## Coming soon
 

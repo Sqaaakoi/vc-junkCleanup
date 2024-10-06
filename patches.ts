@@ -202,6 +202,17 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         ]
     },
 
+    textChannelActivityNameHeader: {
+        description: "Hide the activity name above expanded activities in text channels",
+        patches: {
+            find: ".activityPanelContainer,",
+            replacement: {
+                match: /\i\?null:\(0,\i\.jsx\)\("div",{className:\i\.header,.{0,150}\i\.name}\)}\),/,
+                replace: ""
+            }
+        }
+    },
+
 };
 
 export default Patches;
