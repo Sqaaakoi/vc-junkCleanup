@@ -213,6 +213,17 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         }
     },
 
+    inviteToServer: {
+        description: "Hide the Invite to Server context menu option",
+        patches: {
+            find: 'id:"invite-to-server"',
+            replacement: {
+                match: /(?=return.{0,200}?id:"invite-to-server")/,
+                replace: "return null;"
+            }
+        }
+    }
+
 };
 
 export default Patches;

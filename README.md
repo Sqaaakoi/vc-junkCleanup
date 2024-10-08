@@ -26,6 +26,7 @@ See https://docs.vencord.dev/installing/custom-plugins/ (clone into the `src/use
 - Active Now sidebar (disabled by default)
 - Transfer voice to console
 - Activity name above expanded activities in text channels
+- Invite to Server in context menus
 
 ## Coming soon
 
