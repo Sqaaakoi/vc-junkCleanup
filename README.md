@@ -28,6 +28,9 @@ See https://docs.vencord.dev/installing/custom-plugins/ (clone into the `src/use
 - Activity name above expanded activities in text channels
 - Invite to Server in context menus
 - Clipping enabled voice recording warning
+- Sidebar channel buttons
+  - Create Invite
+  - Edit Channel (disabled by default)
 
 ## Coming soon
 

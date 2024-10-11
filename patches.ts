@@ -235,6 +235,28 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         }
     },
 
+    createInviteButtonOnChannels: {
+        description: "Hide the Create Invite button on channels in the sidebar",
+        patches: {
+            find: 'tutorialId:"instant-invite",',
+            replacement: {
+                match: /(?<=return)(?=.{0,50}?"instant-invite")/,
+                replace: ";"
+            }
+        }
+    },
+    editChannelButton: {
+        description: "Hide the Edit Channel button on channels in the sidebar",
+        patches: {
+            find: 'tutorialId:"instant-invite",',
+            replacement: {
+                match: /(?<=return)(?=.{0,50}?\.Messages\.EDIT_CHANNEL)/,
+                replace: ";"
+            }
+        },
+        default: false
+    },
+
 };
 
 export default Patches;
