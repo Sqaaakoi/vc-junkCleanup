@@ -222,7 +222,18 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
                 replace: "return null;"
             }
         }
-    }
+    },
+
+    clippingEnabledToast: {
+        description: "Hide the clipping enabled; your voice may be recorded warning when joining a voice channel, without disabling your voice from being clipped",
+        patches: {
+            find: 'id:"CLIPS_IN_CALL_WARNING"',
+            replacement: {
+                match: /(?<=showClipsToast\(\){)/,
+                replace: "return;"
+            }
+        }
+    },
 
 };
 

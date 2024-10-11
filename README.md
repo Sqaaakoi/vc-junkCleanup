@@ -27,6 +27,7 @@ See https://docs.vencord.dev/installing/custom-plugins/ (clone into the `src/use
 - Transfer voice to console
 - Activity name above expanded activities in text channels
 - Invite to Server in context menus
+- Clipping enabled voice recording warning
 
 ## Coming soon
 
