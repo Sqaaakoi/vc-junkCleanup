@@ -257,6 +257,17 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         default: false
     },
 
+    boostProgressBar: {
+        description: "Hide the Server Boost progress bar in all servers",
+        patches: {
+            find: ".premiumProgressBarEnabled&&",
+            replacement: {
+                match: /\i\.push(?=\(\i\.\i\.(GUILD_PREMIUM_PROGRESS_BAR|GUILD_NEW_MEMBER_ACTIONS_PROGRESS_BAR)\))/g,
+                replace: ""
+            }
+        }
+    },
+
 };
 
 export default Patches;

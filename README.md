@@ -31,6 +31,7 @@ See https://docs.vencord.dev/installing/custom-plugins/ (clone into the `src/use
 - Sidebar channel buttons
   - Create Invite
   - Edit Channel (disabled by default)
+- Server Boost progress bar
 
 ## Coming soon
 
