@@ -42,3 +42,6 @@ Patches are not located in the plugin object. Patches are instead defined a spec
 
 These wrapper objects are parsed in [index.ts](./index.ts) to provide settings + associated enabled predicate for each patch.
 
+## Credits
+
+Concept and some features inspired by [Anammox](https://github.com/Kyuuhachi/VencordPlugins/tree/main/Anammox)
