@@ -27,6 +27,7 @@ Once you have setup the environment for custom plugins, clone into the `src/user
   - Social Media links
   - Payment section (disabled by default, as it can be opened other places in the app, and hiding it will cause a blank screen)
 - Activity Feed in members list (disabled by default)
+- Activity Feed in DM profile sidebar (disabled by default)
 - Active Now sidebar (disabled by default)
 - Transfer voice to console
 - Activity name above expanded activities in text channels

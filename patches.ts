@@ -170,6 +170,18 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         default: false
     },
 
+    contentInventoryProfilePanel: {
+        description: "Hide the Recent Activity section in the DM profile sidebar",
+        patches: {
+            find: "UserProfilePanelRecentActivity",
+            replacement: {
+                match: /0===\i\.length/,
+                replace: "true"
+            }
+        },
+        default: false
+    },
+
     activeNow: {
         description: "Hide the Active Now sidebar in the Friends page",
         patches: {
