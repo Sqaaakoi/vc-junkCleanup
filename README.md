@@ -37,6 +37,7 @@ Once you have setup the environment for custom plugins, clone into the `src/user
   - Create Invite
   - Edit Channel (disabled by default)
 - Server Boost progress bar
+- New member badge (disabled by default)
 
 ## Coming soon
 

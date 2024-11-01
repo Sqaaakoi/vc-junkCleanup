@@ -280,6 +280,18 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         }
     },
 
+    newMemberBadge: {
+        description: "Hide the new member badge",
+        patches: {
+            find: ".newMemberBadge,",
+            replacement: {
+                match: /(?<=return)\(0,\i\.\i\)\(\i\.id,\i\.author\.id\)\?/,
+                replace: " false?"
+            }
+        },
+        default: false
+    },
+
 };
 
 export default Patches;
