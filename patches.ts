@@ -63,7 +63,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
                 ]
             },
             {
-                find: ".PRIVATE_CHANNELS_A11Y_LABEL",
+                find: "#{intl::PRIVATE_CHANNELS_A11Y_LABEL}",
                 replacement: [
                     {
                         match: /\(0,\i\.\i\)\(.{0,350}?\},"premium"\),/,
@@ -137,9 +137,9 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         description: "Hide the Payment Settings section. May cause side effects.",
         patches: [
             {
-                find: ".BILLING_SETTINGS,",
+                find: "#{intl::BILLING_SETTINGS}",
                 replacement: {
-                    match: /\{header:\i\.\i\.Messages\.BILLING_SETTINGS,.+?\},/,
+                    match: /\{header:.{0,30}?#{intl::BILLING_SETTINGS}.?,.+?\},/,
                     replace: ""
                 }
             }
@@ -150,7 +150,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     downloadApps: {
         description: "Hide the Download Apps button in the sidebar",
         patches: {
-            find: ".GUILDS_BAR_A11Y_LABEL,",
+            find: "#{intl::GUILDS_BAR_A11Y_LABEL}",
             replacement: {
                 match: /\i(?=\?null:\(0,\i\.jsxs\)\(\i\.Fragment,{children:\[\(0,\i\.jsx\))/,
                 replace: "true"
@@ -185,9 +185,9 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     activeNow: {
         description: "Hide the Active Now sidebar in the Friends page",
         patches: {
-            find: ".FRIENDS_SECTION_ONLINE",
+            find: ".nowPlayingColumn,",
             replacement: {
-                match: /,\(0,\i\.jsx\)\("div",{className:\i.nowPlayingColumn,children:\(0,\i.jsx\)\(\i\.\i,{}\)}\)/,
+                match: /,\(0,\i\.jsx\)\("div",{className:\i\.nowPlayingColumn,children:\(0,\i.jsx\)\(\i\.\i,{}\)}\)/,
                 replace: ""
             }
         },
@@ -262,7 +262,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         patches: {
             find: 'tutorialId:"instant-invite",',
             replacement: {
-                match: /(?<=return)(?=.{0,50}?\.Messages\.EDIT_CHANNEL)/,
+                match: /(?<=return)(?=.{0,50}?#{intl::EDIT_CHANNEL})/,
                 replace: ";"
             }
         },
