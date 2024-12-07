@@ -292,6 +292,17 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         default: false
     },
 
+    questsBar: {
+        description: "Hide the Quest promotions in the sidebar",
+        patches: {
+            find: "Not rendered due to asset error",
+            replacement: {
+                match: /(?<=return).{0,50}?\.QUESTS_BAR,questId/,
+                replace: " null;$&"
+            }
+        }
+    },
+
 };
 
 export default Patches;

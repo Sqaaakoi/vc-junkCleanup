@@ -38,10 +38,12 @@ Once you have setup the environment for custom plugins, clone into the `src/user
   - Edit Channel (disabled by default)
 - Server Boost progress bar
 - New member badge (disabled by default)
+- Quests
+  - Quest promotions in the sidebar
 
 ## Coming soon
 
-- Quest promotions (when Discord actually does another quest)
+- Quest promotions in other places
 
 ## Contributing / Adding your own patch
 
