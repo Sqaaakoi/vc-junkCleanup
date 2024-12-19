@@ -303,6 +303,18 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         }
     },
 
+    supportLink: {
+        description: "Hide the link to Discord support in the top right",
+        patches: {
+            find: "toolbar:function",
+            replacement: {
+                match: /!\i&&\(\i\?\(0,\i\.jsx\)\(\i\.\i,{}\):\(0,\i\.jsx\)\(\i\.\i,{}\)\),/,
+                replace: ""
+            }
+        },
+        default: false
+    },
+
 };
 
 export default Patches;
