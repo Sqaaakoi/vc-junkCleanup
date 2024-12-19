@@ -66,7 +66,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
                 find: "#{intl::PRIVATE_CHANNELS_A11Y_LABEL}",
                 replacement: [
                     {
-                        match: /\(0,\i\.\i\)\(.{0,350}?\},"premium"\),/,
+                        match: /\i\?\(0,\i\.\i\)\(.{0,350}?\},"premium"\):null,/,
                         replace: ""
                     },
                     {
@@ -150,10 +150,10 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     downloadApps: {
         description: "Hide the Download Apps button in the sidebar",
         patches: {
-            find: "#{intl::GUILDS_BAR_A11Y_LABEL}",
+            find: "app-download-button",
             replacement: {
-                match: /\i(?=\?null:\(0,\i\.jsxs\)\(\i\.Fragment,{children:\[\(0,\i\.jsx\))/,
-                replace: "true"
+                match: /(function\s\i\(\){)(?=.{0,100}?id:"app-download-button")/,
+                replace: "$1return null;"
             }
         }
     },
