@@ -2,6 +2,8 @@ import { Devs } from "@utils/constants";
 import definePlugin, { OptionType, PluginSettingDef } from "@utils/types";
 import Patches from "./patches";
 import { definePluginSettings } from "@api/Settings";
+import { Card, Forms } from "@webpack/common";
+import { Link } from "@components/Link";
 
 export const ParsedPatches = Object.entries(Patches).map(([patchName, { description, default: defaultValue, patches }]) => {
     return {
@@ -27,5 +29,11 @@ export default definePlugin({
     authors: [Devs.Sqaaakoi],
     settings,
     patches: ParsedPatches.flatMap(p => p.patches),
-    tags: ["junk", "bloat", "debloat", "shop", "gift", "nitro", "ad", "advertisement", "adblock"]
+    tags: ["junk", "bloat", "debloat", "shop", "gift", "nitro", "ad", "advertisement", "adblock"],
+    settingsAboutComponent: () => {
+        return <div>
+            <Forms.FormTitle>Total settings: {ParsedPatches.length}</Forms.FormTitle>
+            <Forms.FormTitle style={{ marginBottom: 0 }}><Link href="https://github.com/Sqaaakoi/vc-junkCleanup">View repository on GitHub</Link></Forms.FormTitle>
+        </div>;
+    }
 });
