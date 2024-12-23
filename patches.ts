@@ -230,8 +230,8 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         patches: {
             find: 'id:"invite-to-server"',
             replacement: {
-                match: /(?=return.{0,200}?id:"invite-to-server")/,
-                replace: "return null;"
+                match: /let{user:/,
+                replace: "return null;$&"
             }
         }
     },
@@ -239,10 +239,10 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     clippingEnabledToast: {
         description: "Hide the clipping enabled; your voice may be recorded warning when joining a voice channel, without disabling your voice from being clipped",
         patches: {
-            find: 'id:"CLIPS_IN_CALL_WARNING"',
+            find: '"CLIPS_IN_CALL_WARNING"',
             replacement: {
-                match: /(?<=showClipsToast\(\){)/,
-                replace: "return;"
+                match: /maybeShowClipsWarning\(\i\){/,
+                replace: "$&return;"
             }
         }
     },
