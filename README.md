@@ -7,7 +7,7 @@ Does not inject styles, uses Vencord patches
 ## Installation
 
 ### See https://docs.vencord.dev/installing/custom-plugins/ for setting up custom plugins
-Once you have setup the environment for custom plugins, clone into the `src/userplugins` folder. If you need further help, see the
+Once you have setup the environment for custom plugins, clone into the `src/userplugins` folder.
 
 > [!WARNING]
 > Do not ask for support regarding installation, including in Vencord's support channel, my DMs, repository issues, or anywhere this plugin has been published, as you won't recieve help. Follow the guide linked above.
