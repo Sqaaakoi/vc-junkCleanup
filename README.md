@@ -41,6 +41,7 @@ Once you have setup the environment for custom plugins, clone into the `src/user
 - Quests
   - Quest promotions in the sidebar
 - Support link in top toolbar (disabled by default)
+- DM Sidebar Quick Switcher button (disabled by default)
 
 ## Coming soon
 

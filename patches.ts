@@ -315,6 +315,19 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         default: false
     },
 
+    quickSwitcherButton: {
+        description: "Hide the Find or start a new conversation button",
+        patches: {
+            find: "#{intl::DM_SEARCH_PLACEHOLDER}",
+            replacement: {
+                match: /\(0,\i\.jsx\)\(\i\.\i,{tutorialId:"direct-messages",.{0,600}?\}\)\}\)\}\),/,
+                replace: ""
+            }
+        },
+        default: false
+    },
+
+
 };
 
 export default Patches;
