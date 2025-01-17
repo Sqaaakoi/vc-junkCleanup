@@ -318,7 +318,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     quickSwitcherButton: {
         description: "Hide the Find or start a new conversation button",
         patches: {
-            find: "#{intl::DM_SEARCH_PLACEHOLDER}",
+            find: 'tutorialId:"direct-messages",',
             replacement: {
                 match: /\(0,\i\.jsx\)\(\i\.\i,{tutorialId:"direct-messages",.{0,600}?\}\)\}\)\}\),/,
                 replace: ""
