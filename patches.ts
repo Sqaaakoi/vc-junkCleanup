@@ -303,6 +303,17 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         }
     },
 
+    questsActiveNow: {
+        description: "Hide the Quest promotions in the Active Now sidebar",
+        patches: {
+            find: 'NOW_PLAYING_CARD_HOVERED,{',
+            replacement: {
+                match: /(quest:)\i}\)/,
+                replace: "$1null})"
+            }
+        }
+    },
+
     supportLink: {
         description: "Hide the link to Discord support in the top right",
         patches: {

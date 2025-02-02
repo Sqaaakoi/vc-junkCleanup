@@ -40,6 +40,7 @@ Once you have setup the environment for custom plugins, clone into the `src/user
 - New member badge (disabled by default)
 - Quests
   - Quest promotions in the sidebar
+  - Quest promotions in the Active Now sidebar
 - Support link in top toolbar (disabled by default)
 - DM Sidebar Quick Switcher button (disabled by default)
 
