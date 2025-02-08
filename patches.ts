@@ -66,7 +66,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
                 find: "#{intl::PRIVATE_CHANNELS_A11Y_LABEL}",
                 replacement: [
                     {
-                        match: /\i\?\(0,\i\.\i\)\(.{0,350}?\},"premium"\):null,/,
+                        match: /\i\?\(0,\i\.\i\)\(.{0,250}?\},"premium"\):null,/,
                         replace: ""
                     },
                     {
