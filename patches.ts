@@ -81,9 +81,9 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     profileEditorShopUpsell: {
         description: "Hide the collectibles upsell banner in the Profiles settings",
         patches: {
-            find: '"CollectiblesUpsellBanner"',
+            find: "COLLECTIBLES_PROFILE_SETTINGS_UPSELL,",
             replacement: {
-                match: /"CollectiblesUpsellBanner".{0,150}?return /,
+                match: /COLLECTIBLES_PROFILE_SETTINGS_UPSELL\).{0,150}?return /,
                 replace: "$&null;"
             }
         }
@@ -170,18 +170,6 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         default: false
     },
 
-    contentInventoryProfilePanel: {
-        description: "Hide the Recent Activity section in the DM profile sidebar",
-        patches: {
-            find: "UserProfilePanelRecentActivity",
-            replacement: {
-                match: /0===\i\.length/,
-                replace: "true"
-            }
-        },
-        default: false
-    },
-
     activeNow: {
         description: "Hide the Active Now sidebar in the Friends page",
         patches: {
@@ -207,7 +195,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
             {
                 find: 'navId:"transfer-menu"',
                 replacement: {
-                    match: /(?<=function \i\(\i\){)(?=let.{0,500}?twoWayLink)/,
+                    match: /(?<=function \i\(\i\){)(?=(let|var)\{channel.{0,1000}?twoWayLink)/,
                     replace: "return null;"
                 }
             }
@@ -283,7 +271,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     newMemberBadge: {
         description: "Hide the new member badge",
         patches: {
-            find: ".newMemberBadge,",
+            find: ".newMemberBadge},",
             replacement: {
                 match: /(?<=return)\(0,\i\.\i\)\(\i\.id,\i\.author\.id\)\?/,
                 replace: " false?"
