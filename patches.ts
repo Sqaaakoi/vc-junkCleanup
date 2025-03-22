@@ -319,7 +319,7 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         patches: {
             find: 'tutorialId:"direct-messages",',
             replacement: {
-                match: /\(0,\i\.jsx\)\(\i\.\i,{tutorialId:"direct-messages",.{0,600}?\}\)\}\)\}\),/,
+                match: /\(0,\i\.jsx\)\(\i\.\i,{.{0,50}?tutorialId:"direct-messages",.{0,600}?\}\)\}\)\}\),/,
                 replace: ""
             }
         },
