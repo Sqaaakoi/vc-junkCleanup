@@ -184,22 +184,13 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
 
     transferToConsole: {
         description: "Hide the transfer to console button",
-        patches: [
-            {
-                find: '"transfer-".concat',
-                replacement: {
-                    match: /(?<=function \i\(\i\){)(?=let.{0,500}?"Console Transfer Item")/,
-                    replace: "return null;"
-                }
-            },
-            {
-                find: 'navId:"transfer-menu"',
-                replacement: {
-                    match: /(?<=function \i\(\i\){)(?=(let|var)\{channel.{0,1000}?twoWayLink)/,
-                    replace: "return null;"
-                }
+        patches: {
+            find: '"transfer-".concat',
+            replacement: {
+                match: /(?<=function \i\(\i\){)(?=let.{0,500}?"Console Transfer Item")/,
+                replace: "return null;"
             }
-        ]
+        }
     },
 
     textChannelActivityNameHeader: {
@@ -305,10 +296,10 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
     supportLink: {
         description: "Hide the link to Discord support in the top right",
         patches: {
-            find: "toolbar:function",
+            find: "HELP_CLICKED,{highlighted",
             replacement: {
-                match: /!\i&&\(\i\?\(0,\i\.jsx\)\(\i\.\i,{}\):\(0,\i\.jsx\)\(\i\.\i,{}\)\),/,
-                replace: ""
+                match: /(?<=function \i\(\i\){)(?=let\{className)/,
+                replace: "return null;"
             }
         },
         default: false
@@ -325,6 +316,30 @@ const Patches: Record<string, ConfigurablePatchDefinition> = {
         },
         default: false
     },
+
+    alsoKnownAs: {
+        description: "Hide the AKA nicknames in DMs",
+        patches: {
+            find: "this.generateNicknameGuildPairs(this.user)",
+            replacement: {
+                match: /this\.generateNicknameGuildPairs\(this\.user\)/,
+                replace: "[];$&"
+            }
+        },
+        default: false
+    },
+
+    voiceGradientBackground: {
+        description: "Hide the gradient backgrounds in voice channels",
+        patches: {
+            find: '.gradientBackground,children:\[\(0',
+            all: true,
+            replacement: {
+                match: /\i\.\i\.getEnableHardwareAcceleration\(\)/,
+                replace: "true?()=>null:$&"
+            }
+        },
+    }
 
 
 };

@@ -42,6 +42,8 @@ Once you have setup the environment for custom plugins, clone into the `src/user
   - Quest promotions in the Active Now sidebar
 - Support link in top toolbar (disabled by default)
 - DM Sidebar Quick Switcher button (disabled by default)
+- Also known as nicknames in DMs (disabled by default)
+- Voice channel gradient background
 
 ## Coming soon
 
